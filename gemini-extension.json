@@ -1,0 +1,14 @@
+{
+  "name": "curio",
+  "version": "0.2.0",
+  "description": "Curio — a design-style library for AI. Search tokenized design styles (real movements, brands, cultural traditions) and fetch machine-readable specs your agent applies to slides, sites, and products.",
+  "mcpServers": {
+    "curio": {
+      "httpUrl": "https://mcp.designbycurio.com/mcp",
+      "authProviderType": "dynamic_discovery",
+      "oauth": {
+        "enabled": true
+      }
+    }
+  }
+}
