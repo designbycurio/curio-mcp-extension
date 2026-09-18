@@ -24,7 +24,7 @@ your agent can apply directly to slides, websites, and products.
 ### Gemini CLI
 
 ```bash
-gemini extensions install https://github.com/voltwake/curio-mcp-extension
+gemini extensions install https://github.com/designbycurio/curio-mcp-extension
 ```
 
 ### Claude Code
