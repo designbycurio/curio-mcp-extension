@@ -6,18 +6,21 @@ movements, brands, cultural traditions), each with a machine-readable spec
 your agent can apply directly to slides, websites, and products.
 
 - **Endpoint**: `https://mcp.designbycurio.com/mcp` (streamable HTTP)
-- **Auth**: OAuth sign-in — no API key. Free accounts fetch free styles; [Pro](https://designbycurio.com/pricing) unlocks the whole library.
+- **Auth**: OAuth sign-in — no API key. Searching and browsing are free; 1 credit unlocks a style for good ([credit packs](https://designbycurio.com/pricing), never expire).
 - **Docs**: [designbycurio.com/docs](https://designbycurio.com/docs)
 
 ## Tools
 
-| Tool | What it does | Quota |
+| Tool | What it does | Cost |
 |---|---|---|
 | `search_styles` | Keyword + facet search over the library | free |
 | `list_styles` | Browse / paginate, filtered by facets | free |
 | `get_style` | Metadata + preview image for one style | free |
-| `get_style_spec` | Full design spec (DESIGN.md), ready to apply | 1 credit |
-| `get_quota` | Remaining spec fetches for the signed-in user | free |
+| `get_style_spec` | Full design spec (DESIGN.md) for a style you've unlocked; for a locked style it returns the cost and your balance instead | free |
+| `unlock_style` | Unlock a style for good and return its spec — your AI asks you first | 1 credit, once per style |
+| `get_balance` | Your credit balance and how many styles you've unlocked | free |
+
+Your AI never spends a credit on its own: `get_style_spec` only reads, and `unlock_style` is meant to be called after you agree. Unlocking a style you already own costs nothing.
 
 ## Install
 
@@ -72,6 +75,7 @@ Settings → Apps & Connectors → **Developer mode** → add `https://mcp.desig
 - *"Find a Japanese minimal style and restyle my landing page with it."*
 - *"Browse Curio for an 80s retro style that works for a dashboard."*
 - *"Fetch the bauhaus-weimar spec and apply it to my slides."*
+- *"How many Curio credits do I have left?"*
 
 ## Links
 
