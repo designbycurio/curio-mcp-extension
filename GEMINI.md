@@ -19,8 +19,9 @@ Typical flow:
    credits it returns `insufficient_credits` and a link to buy more.
 5. `get_balance` to check the user's credits — read-only.
 
-Connecting requires signing in (OAuth, no API key). Every style costs 1
-credit to unlock; credit packs never expire.
+Connecting requires signing in — OAuth, or a personal API key for clients
+that can't open a browser. A read-only key can't call `unlock_style`. Every
+style costs 1 credit to unlock; credit packs never expire.
 
 When applying a spec, follow it verbatim — use its exact tokens (colors,
 typography, spacing, radii, shadows) rather than approximations.
