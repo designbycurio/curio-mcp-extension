@@ -6,9 +6,15 @@ the user's slides, websites, and products.
 
 Typical flow:
 
-1. `search_styles` (keyword + optional facets) or `list_styles` (browse) to
-   find candidate styles.
-2. `get_style` for one style's metadata and a preview image — free.
+1. `search_styles` (keyword in English or Chinese + optional filters) or
+   `list_styles` (browse) to find candidate styles. Filter by what the user is
+   making (`use`: ppt, site, app, shop, article, poster, portfolio, game), the
+   feel they want (`mood`), and where the style comes from (`kind`), plus
+   `color`, `era`, `region`, `dark`.
+2. `get_style` for one style's metadata and a cover image — free. Pass
+   `scenes` to also get screenshots of the style on real layouts: `slide-cover`,
+   `slide-content`, `slide-data` for slides; `dashboard`, `price`, `article`
+   for websites and apps; or `["all"]`.
 3. `get_style_spec` to fetch the full design spec (DESIGN.md) of a style the
    user has unlocked, then apply it to the user's work. It never spends
    credits. For a style that isn't unlocked yet it returns `not_unlocked`
@@ -17,6 +23,9 @@ Typical flow:
    `unlock_style`: it spends 1 credit, unlocks the style for good and returns
    the spec. Styles they already own are never charged again; with too few
    credits it returns `insufficient_credits` and a link to buy more.
+   If the balance is 0, skip the question and give the user `buy_url` from the
+   tool result (`buy_url_zh` for Chinese-speaking users) — after they buy,
+   ask before unlocking.
 5. `get_balance` to check the user's credits — read-only.
 
 Connecting requires signing in — OAuth, or a personal API key for clients

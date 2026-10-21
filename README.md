@@ -1,12 +1,21 @@
 # Curio MCP
 
 Connect your AI to [Curio](https://designbycurio.com) — a design-style library
-built for AI agents. Hundreds of tokenized design styles (real design
-movements, brands, cultural traditions), each with a machine-readable spec
-your agent can apply directly to slides, websites, and products.
+built for AI agents. Thousands of design styles (real design movements, brands,
+cultural traditions), each with a machine-readable spec your agent can apply
+directly to slides, websites, and products.
+
+- **Find the right style**: search in English or Chinese, or filter by what
+  you're making (slides, websites, apps, stores, articles, posters…) and the
+  feel you want (minimal, luxury, playful, retro, futuristic…).
+- **See it before you pick it**: every style comes with a cover image and, on
+  request, screenshots of real layouts — slide cover, content and data slides,
+  a dashboard, a pricing page, an article.
+- **Apply it exactly**: fetch the full design spec (DESIGN.md) and your AI
+  uses its exact colors, type, spacing and components.
 
 - **Endpoint**: `https://mcp.designbycurio.com/mcp` (streamable HTTP)
-- **Auth**: OAuth sign-in for most clients. A client that can't open a browser to sign in uses a personal [API key](#api-key) instead. Searching and browsing are free; 1 credit unlocks a style for good ([credit packs](https://designbycurio.com/pricing), never expire).
+- **Auth**: OAuth sign-in for most clients. A client that can't open a browser to sign in uses a personal [API key](#api-key) instead. Searching, browsing and previews are free; 1 credit unlocks a style for good ([credit packs](https://designbycurio.com/pricing), never expire). Out of credits? Your AI gives you a link to buy more.
 - **Protocol**: MCP 2026-07-28 and the 2025 revisions
 - **Docs**: [designbycurio.com/docs](https://designbycurio.com/docs)
 
@@ -14,12 +23,12 @@ your agent can apply directly to slides, websites, and products.
 
 | Tool | What it does | Cost |
 |---|---|---|
-| `search_styles` | Keyword + facet search over the library | free |
-| `list_styles` | Browse / paginate, filtered by facets | free |
-| `get_style` | Metadata + preview image for one style | free |
-| `get_style_spec` | Full design spec (DESIGN.md) for a style you've unlocked; for a locked style it returns the cost and your balance instead | free |
+| `search_styles` | Keyword search (English or Chinese), with filters: `use` (what you're making), `mood`, `kind` (where the style comes from), `color`, `era`, `region`, `dark` | free |
+| `list_styles` | Browse / paginate with the same filters | free |
+| `get_style` | Metadata + cover image for one style; pass `scenes` for screenshots of real layouts (`slide-cover`, `slide-content`, `slide-data`, `dashboard`, `price`, `article`, or `all`) | free |
+| `get_style_spec` | Full design spec (DESIGN.md) for a style you've unlocked; for a locked style it returns the cost, your balance and a link to buy credits | free |
 | `unlock_style` | Unlock a style for good and return its spec — your AI asks you first | 1 credit, once per style |
-| `get_balance` | Your credit balance and how many styles you've unlocked | free |
+| `get_balance` | Your credit balance, how many styles you've unlocked, and a link to buy more | free |
 
 Your AI never spends a credit on its own: `get_style_spec` only reads, and `unlock_style` is meant to be called after you agree. Unlocking a style you already own costs nothing.
 
@@ -145,6 +154,9 @@ codex mcp add curio --url https://mcp.designbycurio.com/mcp --bearer-token-env-v
 ## Example prompts
 
 - *"Find a Japanese minimal style and restyle my landing page with it."*
+- *"Show me how the Swiss International style looks on slides before I pick it."*
+- *"Find a luxurious style for my pitch deck."*
+- *"找一个适合做 PPT、显高级的风格。"*
 - *"Browse Curio for an 80s retro style that works for a dashboard."*
 - *"Fetch the bauhaus-weimar spec and apply it to my slides."*
 - *"How many Curio credits do I have left?"*
